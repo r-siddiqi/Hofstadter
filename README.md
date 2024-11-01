@@ -5,7 +5,7 @@ Contributers : Amal Bumbia, Rida Siddiqi, Max Wroblewski
 
 In condensed matter research, you often need to run simulations. There is a notable lack of open source code for base cases that you can modify to suit your own purposes. There are Python packages that have attempted to solve this issue, but they are difficult to customise and use. 
 
-This code is cleanly compartmentalized into classes featuring common lattice structures, many of which are found in 2D materials with promising properties under current study. It is much easier to modify a class of a specific lattice type based on 
+This code is cleanly compartmentalized into classes featuring common lattice structures, many of which are found in 2D materials with promising properties under current study. It is much easier to modify a class of a specific lattice type and compute only what you need.
 
 objectives:
 - make the final plots nicer, more clear 
