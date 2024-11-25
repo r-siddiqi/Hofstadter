@@ -1,7 +1,24 @@
-# PHY-329_Project
-Final project for PHY 329 Computational Physics
+# Simulating Anderson Localization and Hofstader Butterflies on Common Euclidean Lattice Structures
+ ## Created by Amal Bumbia, Rida Siddiqi, and Max Wroblewski.
 
-Contributers : Amal Bumbia, Rida Siddiqi, Max Wroblewski
+# Getting Started
+
+To use the notebooks, ....
+- talk about repo structure breifly
+
+# Introduction
+
+# Basic Usage
+
+# Plot Examples
+
+# Potential Applications
+
+# Resources
+
+# Future Directions
+
+# Credits
 
 In condensed matter research, you often need to run simulations. There is a notable lack of open source code for base cases that you can modify to suit your own purposes. There are Python packages that have attempted to solve this issue, but they are difficult to customise and use. 
 
