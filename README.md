@@ -22,25 +22,40 @@ These lattices can be described via Hamiltonians encoding how a species could "h
 
 # Plot Examples
 
+Eigenvalue spectrum:
+
+Eigenvector:
+
+Inverse participation ratio:
+
+Density of states:
+
+Square butterfly with no disorder:
+Honeycomb butterfly with no disorder:
+
+An interesting result discussed in [PAPER] is that the presence of disorder kills the butterfly structure.
+
+Square butterfly with marginal disorder:
+
+Square butterfly with strong disorder:
+
+Many other example plots can be found in the "plots" folder.
+
 # Potential Applications
+The code in this repository simulates some basic tight-binding hamiltonians specific to common 2D lattice types found in materials with the option to introduce on-site disorder or a uniform magnetic field. Modifications would need to be made in order to simulate specific 2D materials or account for more complicated/specific defects, a non-uniform magnetic field, or other complex systems. 
+A non-exhaustive list of possible applications of this code is as follows: 
+- Simulating graphene (and possibly twisted-bilayer graphene)
+- Hyperbolic Circuit QED
 
 # Resources
+Here are some papers we referenced and loosely recreated the results of. You may also find them interesting or useful to read.
 
 # Future Directions
+Some possible modifications to this code could involve:
+- Support for hyperbolic cases
+- Support for open boundary conditions
+- Extensions regarding parameters useful to understanding the quantum hall effect on such systems as well as topological properties (ie. hall conductance, thouless conductance, chern number)
 
 # Credits
-
-In condensed matter research, you often need to run simulations. There is a notable lack of open source code for base cases that you can modify to suit your own purposes. There are Python packages that have attempted to solve this issue, but they are difficult to customise and use. 
-
-This code is cleanly compartmentalized into classes featuring common lattice structures, many of which are found in 2D materials with promising properties under current study. It is much easier to modify a class of a specific lattice type and compute only what you need.
-
-objectives:
-- make the final plots nicer, more clear 
-- complete cases for kagome, oblique, triangular
-- find a clean way to account for redundancy between classes - for instance, many of the plotting functions wind up being the same for some (if not all) of the classes. We might want to make them global and call the plotting outside of the class
-- make a folder of all example runs and plots
-- add in error statements in case of bad user inputs
-- fix comments and docstrings
-
-interesting observations:
-- as you play around with changing the initial parameters, notice that adding disorder to the system kills the butterfly structure
+This started as a project for PHY 381C (Computational Physics) at UT Austin (class website). The presentation we gave in-class on this repository is in the "presentations" folder.
+Special thanks to Dr. William Gilpin (wgilpin@utexas.edu) for being a great instructor all semester!
