@@ -23,15 +23,19 @@ The following tight-binding Hamiltonian describes lattices in the absence of ext
 $$H = \omega_0 \sum_i a_i^\dag a_i - t \sum_{<i,j>} (a_i^\dag a_j + a_j^\dag a_i)$$
 where $\omega_0$ is the on-site energy. The first sum runs over all lattice sites. The second sum describes hopping between nearest neighbors with a hopping amplitude $t$. It also encodes lattice geometry. 
 
-When we're simulating specific lattice types, it's actually easier to construct a Hamiltonian in terms of a matrix populated by considering the lattice geometry. By this, we mean populating a matrix of some size based on the nearest neighbor hopping as it would occur on a particular lattice.
+When we're simulating specific lattice types, it's actually easier to construct a Hamiltonian in terms of a matrix populated by considering the lattice geometry. By this, we mean populating an N x N matrix based on the nearest neighbor hopping as it would occur on a particular lattice.
 
 ## Anderson Localization
 
-## Hofstader Butterflies
-
 ## Inverse Participation Ratio (IPR)
 
+The "participation ratio" gives an estimation of the localization length:
+$$ IPR = \frac{(\sum_x |\psi(x)|^2)^2}{ \sum_x |\psi(x)|^4}$$
+(the numerator is not necessary if wavefunctions are normalized).
+
 ## Density of States
+
+## Hofstader Butterflies
 
 
 # Basic Usage
