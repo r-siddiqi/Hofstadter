@@ -14,6 +14,7 @@ class Plot_Lattice:
         self.max_q = outputs[4]  # Maximum denominator for phi values
         self.evals = outputs[5]
         self.evecs = outputs[6]
+        self.lattice_type = outputs[7]
     
     
     """ Basic plotting functions """
@@ -24,7 +25,7 @@ class Plot_Lattice:
         plt.plot(self.evals, '.')
         plt.ylabel(r'Eigenvalues $E_i$')
         plt.xlabel('Index $i$')
-        plt.title('Eigenvalues of the Hamiltonian')
+        plt.title('Eigenvalues of the ' + self.lattice_type + ' Lattice Hamiltonian')
         plt.legend([legend])
         plt.grid(True)
         plt.show()
@@ -67,7 +68,7 @@ class Plot_Lattice:
         plt.plot(self.evals, self.PR, 'o')
         plt.xlabel('Energy $E$')
         plt.ylabel('Inverse Participation Ratio (IPR)')
-        plt.title('Localization Properties')
+        plt.title('Localization Properties of the '+self.lattice_type+' Lattice')
         plt.legend([legend])
         plt.grid(True)
         plt.show()
@@ -95,7 +96,7 @@ class Plot_Lattice:
         plt.plot(E_vals, dos)
         plt.xlabel('Energy $E$')
         plt.ylabel('Density of States $g(E)$')
-        plt.title('Density of States vs Energy')
+        plt.title('Density of States vs Energy for '+ self.lattice_type + ' Lattice')
         plt.legend([legend])
         plt.grid(True)
         plt.show()

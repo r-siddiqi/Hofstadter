@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from math import gcd
 
 class Honeycomb_Hamiltonian:
     """Honeycomb lattice simulation with Anderson localization and a magnetic field."""
@@ -118,7 +119,7 @@ class Honeycomb_Hamiltonian:
         self.evals, self.evecs = self.construct_hamiltonian()
         
         outputs = (self.L, self.t, self.disorder, self.phi, 
-                   self.max_q, self.evals, self.evecs)
+                   self.max_q, self.evals, self.evecs, 'Honeycomb')
         
         return outputs
 
