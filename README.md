@@ -20,7 +20,7 @@ These lattices can be described via Hamiltonians encoding how a species could "h
 Suppose we take an atom. There are orbitals associated with it that describe regions where electrons could exist -- these are eigenfunctions of the Hamiltonian describing our atom. But what if we configure our atom with other atoms in a crystalline configuration? 
 How do we describe the energy of a system where particles are placed in a crystalline configuration?
 The following tight-binding Hamiltonian describes lattices in the absence of external interactions while accounting for hopping:
-$$H = \omega_0 \sum_i a_i^\dag a_i - t \sum_{<i,j>} (a_i^\dag a_j + a_j^\dag a_i)$$
+$$H = \omega_0 \sum_{i} a^{\dagger}{i} a{i} - t \sum_{\langle i,j \rangle} (a^{\dagger}{i} a{j} + a^{\dagger}{j} a{i})$$
 where $\omega_0$ is the on-site energy. The first sum runs over all lattice sites. The second sum describes hopping between nearest neighbors with a hopping amplitude $t$. It also encodes lattice geometry. 
 
 When we're simulating specific lattice types, it's actually easier to construct a Hamiltonian in terms of a matrix populated by considering the lattice geometry. By this, we mean populating an N x N matrix based on the nearest neighbor hopping as it would occur on a particular lattice.
@@ -34,7 +34,7 @@ Experimentally, electron localization has mostly been observed in a 1D case.
 
 The Anderson Hamiltonian can help us describe the localization in more technical terms. We write it as such
 
-$$H = W \sum_n (\varepsilon_n c^{\dag}_n c_n) + t\sum_{<n,m>} (c^{\dag}_n c_m + h.c)$$ where $t$ is the parameter describing the nearest hopping neighbor, $W$ is the disorder parameter, and $\epsilon_n$ is the random on-site energy in the range $[-1/2 , 1/2]$.
+$$H = W \sum_{n} (\varepsilon_{n} c^{\dagger}{n} c{n}) + t\sum_{\langle n,m \rangle} (c^{\dagger}{n} c{m} + \text{h.c.})$$ where $t$ is the parameter describing the nearest hopping neighbor, $W$ is the disorder parameter, and $\epsilon_n$ is the random on-site energy in the range $[-\frac{1}{2},\frac{1}{2}]$.
 
 ## Inverse Participation Ratio (IPR)
 
@@ -44,7 +44,7 @@ $$IPR = \frac{(\sum_x |\psi(x)|^2)^2}{ \sum_x |\psi(x)|^4}$$
 
 ## Hofstader Butterflies
 What happens when we apply a perpendicular, uniform magnetic field onto a lattice? The general tight-binding hamiltonian will now involve a "Peierls phase" accounting for the magnetic flux through each plaquette as well as relevant changes in the boundary conditions.
-An interesting result is that if we plot the energies as a function of magnetic flux ratios ($\phi = p/q$) such that p and q are coprime integers, we obtain a fractal pattern. It is a recursive structure. The way we constructed the butterfly involved choosing a maximum value for q, iterating through all the coprime p,q pairs leading up to that point, and then reconstructing the hamiltonian for each consequent $\phi = p/q$. 
+An interesting result is that if we plot the energies as a function of magnetic flux ratios ($\phi = p/q$) such that $p$ and $q$ are coprime integers, we obtain a fractal pattern. It is a recursive structure. The way we constructed the butterfly involved choosing a maximum value for $q$, iterating through all the coprime $p$,$q$ pairs leading up to that point, and then reconstructing the hamiltonian for each consequent $\phi = p/q$. 
 
 # Basic Usage
 
