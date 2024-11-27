@@ -98,11 +98,13 @@ Here are some papers we referenced or loosely recreated the results of. You may 
 - [Quantum localization on the square lattice](https://phas.ubc.ca/~berciu/TEACHING/PHYS502/PROJECTS/17AL.pdf)  
   Comprehensive analysis of localization properties including numerical methods
 
+## Honeycomb Lattice
+- [Energy spectrum of a honeycomb lattice under nonuniform magnetic fields](https://www.researchgate.net/publication/288374712_Energy_spectrum_of_a_honeycomb_lattice_under_nonuniform_magnetic_fields)  
+  Analysis of nonuniform field effects on honeycomb lattices
+
 ## Triangular/Hexagonal Lattice
 - [Energy Spectrum of a Triangular Lattice in a Uniform Magnetic Field](https://www.researchgate.net/publication/286357286_Energy_Spectrum_of_a_Triangular_Lattice_in_a_Uniform_Magnetic_Field_Effect_of_Next-Nearest-Neighbor_Hopping)  
   Effects of next-nearest-neighbor hopping and magnetic field interactions
-- [Energy spectrum of a honeycomb lattice under nonuniform magnetic fields](https://www.researchgate.net/publication/288374712_Energy_spectrum_of_a_honeycomb_lattice_under_nonuniform_magnetic_fields)  
-  Analysis of nonuniform field effects on honeycomb lattices
 
 ## Kagome Lattice
 - [Hofstadter Butterfly and Many-Body Effects in the Kagome Lattice](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.71.125310)  
