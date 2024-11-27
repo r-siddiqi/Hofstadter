@@ -68,7 +68,22 @@ A non-exhaustive list of possible applications of this code is as follows:
 - Hyperbolic Circuit QED
 
 # Resources
-Here are some papers we referenced and loosely recreated the results of. You may also find them interesting or useful to read.
+Here are some papers we referenced or loosely recreated the results of. You may also find them interesting or useful to read.
+
+- https://www.researchgate.net/publication/288374712_Energy_spectrum_of_a_honeycomb_lattice_under_nonuniform_magnetic_fields
+- https://physics.bgu.ac.il/ARCHIVE/public_projects/2018_06_25_idofried.pdf
+- https://physics.bu.edu/~okctsui/PY543/5_notes_Tight%20Binding.pdf
+- https://iopscience.iop.org/article/10.1088/1367-2630/ac4126/pdf
+- https://www.researchgate.net/publication/286357286_Energy_Spectrum_of_a_Triangular_Lattice_in_a_Uniform_Magnetic_Field_Effect_of_Next-Nearest-Neighbor_Hopping
+- https://journals.jps.jp/doi/10.1143/JPSJ.53.3101#:~:text=A%20computer%20simulation%20is%20performed%20to%20study%20the,Thouless%20number%20g%20%28%20L%20%29%20is%20employed.
+- https://link.springer.com/chapter/10.1007/978-3-030-21511-8_5
+- https://journals.aps.org/prb/abstract/10.1103/PhysRevB.71.125310
+- https://www.degruyter.com/document/doi/10.1515/9781400846733/html
+- https://www.sciencedirect.com/science/article/abs/pii/0038109876912539
+- https://phas.ubc.ca/~berciu/TEACHING/PHYS502/PROJECTS/17AL.pdf
+- http://arxiv.org/abs/2310.07978
+- https://www.damtp.cam.ac.uk/user/tong/qhe/qhe.pdf
+  
 
 # Future Directions
 Some possible modifications to this code could involve:
