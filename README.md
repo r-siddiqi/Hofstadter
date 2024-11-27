@@ -20,7 +20,9 @@ These lattices can be described via Hamiltonians encoding how a species could "h
 Suppose we take an atom. There are orbitals associated with it that describe regions where electrons could exist -- these are eigenfunctions of the Hamiltonian describing our atom. But what if we configure our atom with other atoms in a crystalline configuration? 
 How do we describe the energy of a system where particles are placed in a crystalline configuration?
 The following tight-binding Hamiltonian describes lattices in the absence of external interactions while accounting for hopping:
-$$H = \omega_0 \sum_{i} a^{\dagger}{i} a{i} - t \sum_{\langle i,j \rangle} (a^{\dagger}{i} a{j} + a^{\dagger}{j} a{i})$$
+
+$$H = \omega_0 \sum_i a_i^{\dagger} a_i - t \sum_{\langle i,j\rangle} (a_i^{\dagger} a_j + a_j^{\dagger} a_i)$$
+
 where $\omega_0$ is the on-site energy. The first sum runs over all lattice sites. The second sum describes hopping between nearest neighbors with a hopping amplitude $t$. It also encodes lattice geometry. 
 
 When we're simulating specific lattice types, it's actually easier to construct a Hamiltonian in terms of a matrix populated by considering the lattice geometry. By this, we mean populating an N x N matrix based on the nearest neighbor hopping as it would occur on a particular lattice.
@@ -34,7 +36,9 @@ Experimentally, electron localization has mostly been observed in a 1D case.
 
 The Anderson Hamiltonian can help us describe the localization in more technical terms. We write it as such
 
-$$H = W \sum_{n} (\varepsilon_{n} c^{\dagger}{n} c{n}) + t\sum_{\langle n,m \rangle} (c^{\dagger}{n} c{m} + \text{h.c.})$$ where $t$ is the parameter describing the nearest hopping neighbor, $W$ is the disorder parameter, and $\epsilon_n$ is the random on-site energy in the range $[-\frac{1}{2},\frac{1}{2}]$.
+$$H = W \sum_n (\epsilon_n c_n^\dagger c_n) + t \sum_{<n,m>} (c_n^\dagger c_m + h.c)$$
+
+where $t$ is the parameter describing the nearest hopping neighbor, $W$ is the disorder parameter, and $\epsilon_n$ is the random on-site energy in the range $[-\frac{1}{2},\frac{1}{2}]$.
 
 ## Inverse Participation Ratio (IPR)
 
@@ -44,7 +48,7 @@ $$IPR = \frac{(\sum_x |\psi(x)|^2)^2}{ \sum_x |\psi(x)|^4}$$
 
 ## Hofstader Butterflies
 What happens when we apply a perpendicular, uniform magnetic field onto a lattice? The general tight-binding hamiltonian will now involve a "Peierls phase" accounting for the magnetic flux through each plaquette as well as relevant changes in the boundary conditions.
-An interesting result is that if we plot the energies as a function of magnetic flux ratios ($\phi = p/q$) such that $p$ and $q$ are coprime integers, we obtain a fractal pattern. It is a recursive structure. The way we constructed the butterfly involved choosing a maximum value for $q$, iterating through all the coprime $p$,$q$ pairs leading up to that point, and then reconstructing the hamiltonian for each consequent $\phi = p/q$. 
+An interesting result is that if we plot the energies as a function of magnetic flux ratios ($\phi = p/q$) such that $p$ and $q$ are coprime integers, we obtain a fractal pattern. It is a recursive structure. The way we constructed the butterfly involved choosing a maximum value for $q$, iterating through all the coprime $p$, $q$ pairs leading up to that point, and then reconstructing the hamiltonian for each consequent $\phi = p/q$. 
 
 # Basic Usage
 
@@ -79,19 +83,32 @@ A non-exhaustive list of possible applications of this code is as follows:
 # Resources
 Here are some papers we referenced or loosely recreated the results of. You may also find them interesting or useful to read.
 
-- https://www.researchgate.net/publication/288374712_Energy_spectrum_of_a_honeycomb_lattice_under_nonuniform_magnetic_fields
-- https://physics.bgu.ac.il/ARCHIVE/public_projects/2018_06_25_idofried.pdf
-- https://physics.bu.edu/~okctsui/PY543/5_notes_Tight%20Binding.pdf
-- https://iopscience.iop.org/article/10.1088/1367-2630/ac4126/pdf
-- https://www.researchgate.net/publication/286357286_Energy_Spectrum_of_a_Triangular_Lattice_in_a_Uniform_Magnetic_Field_Effect_of_Next-Nearest-Neighbor_Hopping
-- https://journals.jps.jp/doi/10.1143/JPSJ.53.3101#:~:text=A%20computer%20simulation%20is%20performed%20to%20study%20the,Thouless%20number%20g%20%28%20L%20%29%20is%20employed.
-- https://link.springer.com/chapter/10.1007/978-3-030-21511-8_5
-- https://journals.aps.org/prb/abstract/10.1103/PhysRevB.71.125310
-- https://www.degruyter.com/document/doi/10.1515/9781400846733/html
-- https://www.sciencedirect.com/science/article/abs/pii/0038109876912539
-- https://phas.ubc.ca/~berciu/TEACHING/PHYS502/PROJECTS/17AL.pdf
-- http://arxiv.org/abs/2310.07978
-- https://www.damtp.cam.ac.uk/user/tong/qhe/qhe.pdf
+## General Theory
+- [Tight Binding Method and the Electronic Energy Band Structure](https://physics.bu.edu/~okctsui/PY543/5_notes_Tight%20Binding.pdf)
+- [The Quantum Hall Effect](https://www.damtp.cam.ac.uk/user/tong/qhe/qhe.pdf)  
+  David Tong's comprehensive notes on QHE
+- [Anderson Localization and Its Ramifications](https://www.degruyter.com/document/doi/10.1515/9781400846733/html)  
+  Fundamental theory and applications
+- [Low-field electron localization in a magnetic field](https://www.sciencedirect.com/science/article/abs/pii/0038109876912539)  
+  Kaveh & Mott's seminal paper on electron localization
+
+## Square Lattice
+- [Universal properties of the two-dimensional Anderson model in a magnetic field](https://journals.jps.jp/doi/10.1143/JPSJ.53.3101)  
+  Computer simulation study of Anderson localization with detailed analysis of scaling properties
+- [Quantum localization on the square lattice](https://phas.ubc.ca/~berciu/TEACHING/PHYS502/PROJECTS/17AL.pdf)  
+  Comprehensive analysis of localization properties including numerical methods
+
+## Triangular/Hexagonal Lattice
+- [Energy Spectrum of a Triangular Lattice in a Uniform Magnetic Field](https://www.researchgate.net/publication/286357286_Energy_Spectrum_of_a_Triangular_Lattice_in_a_Uniform_Magnetic_Field_Effect_of_Next-Nearest-Neighbor_Hopping)  
+  Effects of next-nearest-neighbor hopping and magnetic field interactions
+- [Energy spectrum of a honeycomb lattice under nonuniform magnetic fields](https://www.researchgate.net/publication/288374712_Energy_spectrum_of_a_honeycomb_lattice_under_nonuniform_magnetic_fields)  
+  Analysis of nonuniform field effects on honeycomb lattices
+
+## Kagome Lattice
+- [Hofstadter Butterfly and Many-Body Effects in the Kagome Lattice](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.71.125310)  
+  Detailed analysis of magnetic field effects and band structure
+- [Electronic Structure of the Kagome Lattice](https://iopscience.iop.org/article/10.1088/1367-2630/ac4126/pdf)  
+  Comprehensive band structure analysis and topological properties
   
 
 # Future Directions
