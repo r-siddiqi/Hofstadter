@@ -120,5 +120,5 @@ Some possible modifications to this code could involve:
 - Extensions regarding parameters useful to understanding the quantum hall effect on such systems as well as topological properties (ie. hall conductance, thouless conductance, chern number)
 
 # Credits
-This started as a project for PHY 329 (Computational Physics) at UT Austin (class website: https://www.wgilpin.com/cphy/). The presentation we gave in-class on this repository is in the "presentations" folder.
+This started as a project for PHY 329 (Computational Physics) at UT Austin ([class website](https://www.wgilpin.com/cphy/)). The presentation we gave in-class on this repository is in the "presentations" folder.
 Special thanks to Dr. William Gilpin (wgilpin@utexas.edu) for being a great instructor all semester!
