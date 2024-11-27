@@ -46,7 +46,7 @@ The "participation ratio" gives an estimation of the localization length:
 $$IPR = \frac{(\sum_x |\psi(x)|^2)^2}{ \sum_x |\psi(x)|^4}$$
 (the numerator is not necessary if wavefunctions are normalized).
 
-## Hofstader Butterflies
+## Hofstadter Butterflies
 What happens when we apply a perpendicular, uniform magnetic field onto a lattice? The general tight-binding hamiltonian will now involve a "Peierls phase" accounting for the magnetic flux through each plaquette as well as relevant changes in the boundary conditions.
 An interesting result is that if we plot the energies as a function of magnetic flux ratios ($\phi = p/q$) such that $p$ and $q$ are coprime integers, we obtain a fractal pattern. It is a recursive structure. The way we constructed the butterfly involved choosing a maximum value for $q$, iterating through all the coprime $p$, $q$ pairs leading up to that point, and then reconstructing the hamiltonian for each consequent $\phi = p/q$. 
 
@@ -118,5 +118,5 @@ Some possible modifications to this code could involve:
 - Extensions regarding parameters useful to understanding the quantum hall effect on such systems as well as topological properties (ie. hall conductance, thouless conductance, chern number)
 
 # Credits
-This started as a project for PHY 381C (Computational Physics) at UT Austin (class website: https://www.wgilpin.com/cphy/). The presentation we gave in-class on this repository is in the "presentations" folder.
+This started as a project for PHY 329 (Computational Physics) at UT Austin (class website: https://www.wgilpin.com/cphy/). The presentation we gave in-class on this repository is in the "presentations" folder.
 Special thanks to Dr. William Gilpin (wgilpin@utexas.edu) for being a great instructor all semester!
