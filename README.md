@@ -1,4 +1,4 @@
-# Simulating Anderson Localization and Hofstader Butterflies on Common Euclidean Lattice Structures
+# Simulating Anderson Localization and Hofstadter Butterflies on Common Euclidean Lattice Structures
  ### Created by Amal Bumbia, Rida Siddiqi, and Max Wroblewski.
 
 # Getting Started
