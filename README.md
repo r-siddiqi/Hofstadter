@@ -33,7 +33,8 @@ The Anderson tight-binding model allows us to describe this phenomenon more effe
 Experimentally, electron localization has mostly been observed in a 1D case. 
 
 The Anderson Hamiltonian can help us describe the localization in more technical terms. We write it as such
-$$H = W \sum_n (\epsilon_n c^{\dagger}_n c_n) + t\sum_{<n,m>} (c^{\dagger}_n c_m + h.c)$$ where $t$ is the parameter describing the nearest hopping neighbor, $W$ is the disorder parameter, and $\epsilon_n$ is the random on-site energy in the range $[-1/2 , 1/2]$.
+
+$$H = W \sum_n (\varepsilon_n c^{\dag}_n c_n) + t\sum_{<n,m>} (c^{\dag}_n c_m + h.c)$$ where $t$ is the parameter describing the nearest hopping neighbor, $W$ is the disorder parameter, and $\epsilon_n$ is the random on-site energy in the range $[-1/2 , 1/2]$.
 
 ## Inverse Participation Ratio (IPR)
 
