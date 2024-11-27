@@ -30,7 +30,7 @@ When we're simulating specific lattice types, it's actually easier to construct 
 ## Inverse Participation Ratio (IPR)
 
 The "participation ratio" gives an estimation of the localization length:
-$$ IPR = \frac{(\sum_x |\psi(x)|^2)^2}{ \sum_x |\psi(x)|^4}$$
+$$IPR = \frac{(\sum_x |\psi(x)|^2)^2}{ \sum_x |\psi(x)|^4}$$
 (the numerator is not necessary if wavefunctions are normalized).
 
 ## Density of States
