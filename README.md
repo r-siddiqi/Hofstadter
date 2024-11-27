@@ -36,7 +36,8 @@ $$IPR = \frac{(\sum_x |\psi(x)|^2)^2}{ \sum_x |\psi(x)|^4}$$
 ## Density of States
 
 ## Hofstader Butterflies
-
+What happens when we apply a perpendicular, uniform magnetic field onto a lattice? The general tight-binding hamiltonian will now involve a "Peierls phase" accounting for the magnetic flux through each plaquette as well as relevant changes in the boundary conditions.
+An interesting result is that if we plot the energies as a function of magnetic flux ratios ($\phi = p/q$) such that p and q are coprime integers, we obtain a fractal pattern. It is a recursive structure. 
 
 # Basic Usage
 
@@ -64,8 +65,9 @@ Many other example plots can be found in the "plots" folder.
 # Potential Applications
 The code in this repository simulates some basic tight-binding hamiltonians specific to common 2D lattice types found in materials with the option to introduce on-site disorder or a uniform magnetic field. Modifications would need to be made in order to simulate specific 2D materials or account for more complicated/specific defects, a non-uniform magnetic field, or other complex systems. 
 A non-exhaustive list of possible applications of this code is as follows: 
-- Simulating graphene (and possibly twisted-bilayer graphene)
+- Simulating graphene (twisted-bilayer graphene)
 - Hyperbolic Circuit QED
+- Realizing the quantum hall effect in various moiré materials
 
 # Resources
 Here are some papers we referenced or loosely recreated the results of. You may also find them interesting or useful to read.
