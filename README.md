@@ -20,7 +20,7 @@ These lattices can be described via Hamiltonians encoding how a species could "h
 Suppose we take an atom. There are orbitals associated with it that describe regions where electrons could exist -- these are eigenfunctions of the Hamiltonian describing our atom. But what if we configure our atom with other atoms in a crystalline configuration? 
 How do we describe the energy of a system where particles are placed in a crystalline configuration?
 The following tight-binding Hamiltonian describes lattices in the absence of external interactions while accounting for hopping:
-$$H = \omega_0 \sum_i a_i^{\dag} a_i - t \sum_{<i,j>} (a_i^\dag a_j + a_j^\dag a_i)$$
+$$H = \omega_0 \sum_i a_i^\dag a_i - t \sum_{<i,j>} (a_i^\dag a_j + a_j^\dag a_i)$$
 where $\omega_0$ is the on-site energy. The first sum runs over all lattice sites. The second sum describes hopping between nearest neighbors with a hopping amplitude $t$. It also encodes lattice geometry. 
 
 When we're simulating specific lattice types, it's actually easier to construct a Hamiltonian in terms of a matrix populated by considering the lattice geometry. By this, we mean populating an N x N matrix based on the nearest neighbor hopping as it would occur on a particular lattice.
