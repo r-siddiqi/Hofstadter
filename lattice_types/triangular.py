@@ -2,18 +2,21 @@ import numpy as np
 import matplotlib.pyplot as plt
 from math import gcd
 
-class Triangular_Hamiltonian:
-    """
-    Triangular lattice simulation with Anderson localization and magnetic field.
 
-    Implements a tight-binding model for a triangular lattice with:
-    - Nearest neighbor hopping
-    - Anderson disorder via random on-site potentials
-    - Magnetic field effects through Peierls phase factors
-    - Periodic boundary conditions
-    """
+class Triangular_Hamiltonian:
+    """ Triangular lattice simulation with Anderson localization and magnetic field."""
 
     def __init__(self, length: int, t: float, W: float, phi: float, q: int):
+        """
+        Initialize the Triangular_Hamiltonian class.
+
+        Parameters:
+            length (int): Lattice size.
+            t (float): Hopping parameter.
+            W (float): Disorder strength.
+            phi (float): Magnetic flux per plaquette (in units of flux quantum).
+            q (int): Maximum denominator for phi values in Hofstadter butterfly.
+        """
         self.L = length
         self.N = self.L * self.L  # Total number of sites
         self.t = t  # Hopping parameter
@@ -28,45 +31,39 @@ class Triangular_Hamiltonian:
         self.on_site_potential = self.disorder * (2 * np.random.rand(self.N) - 1)
 
     def peierls_phase(self, x, y, delta_x, delta_y):
-        """Calculate Peierls phase factor for hopping between sites.
+        """
+        Calculate the Peierls phase.
 
         Parameters:
-        ----------
-        x : int
-            x-index of starting site
-        y : int
-            y-index of starting site
-        delta_x : int
-            Change in x-coordinate between sites.
-        delta_y : int
-            Change in y-coordinate between sites.
+            delta_x (int): Change in x-coordinate between sites.
+            delta_y (int): Change in y-coordinate between sites.
+            x (int): x-coordinate of the starting site.
+            y (int): y-coordinate of the starting site.
 
         Returns:
-        -------
-        complex
-            Phase factor for the hopping term
+            complex: Phase factor to be applied to the hopping term.
         """
         # Magnetic flux per plaquette
         phi = self.phi
-
-        # Landau gauge: A = (0, Bx)
-        # Peierls phase: θ = (2π/Φ0) ∫ A · dl = 2πφ (x_i + delta_x / 2) * delta_y
-
         x_i = x
         x_f = (x + delta_x)
         y_i = y
         y_f = (y + delta_y)
 
-        # Average x position during hop
+        # Average x position during hopping
         x_avg = x_i + delta_x / 2
 
-        # Phase accumulated during hop
+        # Phase accumulated during hopping
         phase = np.exp(2j * np.pi * phi * x_avg * delta_y)
 
         return phase
 
     def construct_hamiltonian(self):
-        """Construct the Hamiltonian matrix with hopping and disorder terms."""
+        """
+        Construct the Hamiltonian matrix with hopping,
+        Peierls phases, and disorder.
+
+        """
         self.disorder_setter()
         self.matrix = np.zeros((self.N, self.N), dtype=complex)
 
@@ -105,7 +102,7 @@ class Triangular_Hamiltonian:
         self.evals, self.evecs = np.linalg.eigh(self.H)
 
     def plot_hofstadter_butterfly(self):
-        #Plot Hofstadter butterfly energy spectrum vs magnetic flux.
+        # Plot Hofstadter butterfly.
         plt.figure(figsize=(10, 8))
         phis = []
         energies = []
@@ -128,3 +125,17 @@ class Triangular_Hamiltonian:
         plt.title(f'Hofstadter Butterfly for $\\phi = p / {self.max_q}$ and $W = {self.disorder}$')
         plt.grid(True)
         plt.show()
+    def prepare_outputs(self):
+        """
+        Package all relevant parameters and diagonalization 
+        outputs in a tuple to pass onto independent plotting functions.
+
+        Returns:
+            tuple: Parameter inputs for plotting functions.
+        """
+        self.evals, self.evecs = self.construct_hamiltonian()
+        
+        outputs = (self.L, self.t, self.disorder, self.phi, 
+                   self.max_q, self.evals, self.evecs)
+        
+        return outputs
