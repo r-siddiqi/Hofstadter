@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from math import gcd
 
 class Honeycomb_Hamiltonian:
     """Honeycomb lattice simulation with Anderson localization and a magnetic field."""
@@ -51,7 +52,13 @@ class Honeycomb_Hamiltonian:
         return np.exp(1j * phase)
 
     def construct_hamiltonian(self):
-        # Construct the Hamiltonian matrix with hopping, Peierls phases, and disorder.
+        """
+        Construct the Hamiltonian matrix with hopping,
+        Peierls phases, and disorder.
+
+        Returns:
+            list: Eigenvalues and eigenvectors of Hamiltonian matrix.
+        """
         self.disorder_setter()
         self.matrix = np.zeros((self.N, self.N), dtype=complex)
 
@@ -113,8 +120,15 @@ class Honeycomb_Hamiltonian:
         plt.title(f'Hofstadter Butterfly for $\\phi = p / {self.max_q}$ and $W = {self.disorder}$')
         plt.grid(True)
         plt.show()
+
     def prepare_outputs(self):
-        
+        """
+        Package all relevant parameters and diagonalization 
+        outputs in a tuple to pass onto independent plotting functions.
+
+        Returns:
+            tuple: Parameter inputs for plotting functions.
+        """
         self.evals, self.evecs = self.construct_hamiltonian()
         
         outputs = (self.L, self.t, self.disorder, self.phi, 
