@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-class Plot_Lattice:
+class Plotting_Functions:
     
     def __init__(self, outputs, save = False):
         
@@ -85,8 +85,6 @@ class Plot_Lattice:
         plt.legend([legend])
         plt.grid(True)
         plt.show()
-
-    """ Advanced computations and plotting """
 
     def plot_density_of_states(self, sigma=0.1, num_points=1000):
         """

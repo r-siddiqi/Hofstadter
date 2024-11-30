@@ -2,12 +2,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 from math import gcd
 
-class Honeycomb_Hamiltonian:
-    """Honeycomb lattice simulation with Anderson localization and a magnetic field."""
+
+class Triangular_Hamiltonian:
+    """ Triangular lattice simulation with Anderson localization and magnetic field."""
 
     def __init__(self, length: int, t: float, W: float, phi: float, q: int):
         """
-        Initialize the Honeycomb_Hamiltonian class.
+        Initialize the Triangular_Hamiltonian class.
 
         Parameters:
             length (int): Lattice size.
@@ -16,24 +17,20 @@ class Honeycomb_Hamiltonian:
             phi (float): Magnetic flux per plaquette (in units of flux quantum).
             q (int): Maximum denominator for phi values in Hofstadter butterfly.
         """
-        self.L = length  # Lattice dimension
-        self.N = 2 * self.L * self.L  # Total number of sites (factor of 2 for two sublattices)
+        self.L = length
+        self.N = self.L * self.L  # Total number of sites
         self.t = t  # Hopping parameter
         self.disorder = W  # Disorder strength
         self.phi = phi  # Magnetic flux per plaquette
         self.max_q = q  # Maximum denominator for phi values
-        self.matrix = np.zeros((self.N, self.N), dtype=complex)  # Hamiltonian matrix
-
-        # Initialize on-site disorder potentials
+        self.matrix = np.zeros((self.N, self.N), dtype=complex)
         self.on_site_potential = np.zeros(self.N)
 
-    #  Defining and diagonalizing the Hamiltonian for the system
-
     def disorder_setter(self):
-        # Apply on-site disorder potentials.
+        """Set random on-site potentials for Anderson localization."""
         self.on_site_potential = self.disorder * (2 * np.random.rand(self.N) - 1)
 
-    def peierls_phase(self, delta_x, delta_y, x, y):
+    def peierls_phase(self, x, y, delta_x, delta_y):
         """
         Calculate the Peierls phase.
 
@@ -46,81 +43,88 @@ class Honeycomb_Hamiltonian:
         Returns:
             complex: Phase factor to be applied to the hopping term.
         """
-        # Using Landau gauge
-        # Phase accumulated is phi * x * delta_y
-        phase = 2 * np.pi * self.phi * (x * delta_y)
-        return np.exp(1j * phase)
+        # Magnetic flux per plaquette
+        phi = self.phi
+        x_i = x
+        x_f = (x + delta_x)
+        y_i = y
+        y_f = (y + delta_y)
+
+        # Average x position during hopping
+        x_avg = x_i + delta_x / 2
+
+        # Phase accumulated during hopping
+        phase = np.exp(2j * np.pi * phi * x_avg * delta_y)
+
+        return phase
 
     def construct_hamiltonian(self):
         """
         Construct the Hamiltonian matrix with hopping,
         Peierls phases, and disorder.
 
-        Returns:
-            list: Eigenvalues and eigenvectors of Hamiltonian matrix.
         """
         self.disorder_setter()
         self.matrix = np.zeros((self.N, self.N), dtype=complex)
 
-        for i, j in np.ndindex((self.L, self.L)):
-            n = i * self.L + j
-            A = 2 * n    # Sublattice A index
-            B = A + 1    # Sublattice B index
+        for x in range(self.L):
+            for y in range(self.L):
+                n = x * self.L + y
 
-            # On-site potentials
-            self.matrix[A, A] = self.on_site_potential[A]
-            self.matrix[B, B] = self.on_site_potential[B]
+                # On-site potential
+                self.matrix[n, n] = self.on_site_potential[n]
 
-            # Hopping from A to B in the same unit cell
-            phase = self.peierls_phase(0, 0, i, j)
-            self.matrix[A, B] = -self.t * phase
-            self.matrix[B, A] = -self.t * np.conj(phase)
+                # List of neighbor displacements (all six nearest neighbors)
+                neighbor_displacements = [
+                    (1, 0),    # Right (+x)
+                    (0, 1),    # Up (+y)
+                    (-1, 1),   # Up-Left (-x, +y)
+                    (-1, 0),   # Left (-x)
+                    (0, -1),   # Down (-y)
+                    (1, -1)    # Down-Right (+x, -y)
+                ]
 
-            # Horizontal hopping from A to B (delta_x = 1, delta_y = 0)
-            i_x = (i + 1) % self.L
-            n_x = i_x * self.L + j
-            B_x = 2 * n_x + 1
-            phase = self.peierls_phase(1, 0, i, j)
-            self.matrix[A, B_x] = -self.t * phase
-            self.matrix[B_x, A] = -self.t * np.conj(phase)
+                for delta_x, delta_y in neighbor_displacements:
+                    x_neighbor = (x + delta_x) % self.L
+                    y_neighbor = (y + delta_y) % self.L
+                    n_neighbor = x_neighbor * self.L + y_neighbor
 
-            # Vertical hopping from A to B (delta_x = 0, delta_y = 1)
-            j_y = (j + 1) % self.L
-            n_y = i * self.L + j_y
-            B_y = 2 * n_y + 1
-            phase = self.peierls_phase(0, 1, i, j)
-            self.matrix[A, B_y] = -self.t * phase
-            self.matrix[B_y, A] = -self.t * np.conj(phase)
+                    # Calculate Peierls phase
+                    phase = self.peierls_phase(x, y, delta_x, delta_y)
 
-        # Constructed Hamiltonian
-        self.H = self.matrix
+                    # Add hopping term
+                    self.matrix[n, n_neighbor] += -self.t * phase
+
+        # Ensure Hamiltonian is Hermitian
+        self.H = (self.matrix + self.matrix.conj().T) / 2
 
         # Compute eigenvalues and eigenvectors
         self.evals, self.evecs = np.linalg.eigh(self.H)
 
-        return self.evals, self.evecs
-    
     def plot_hofstadter_butterfly(self):
-        # Plot the Hofstadter butterfly
+        # Plot Hofstadter butterfly.
         plt.figure(figsize=(10, 8))
         phis = []
         energies = []
 
+        original_phi = self.phi  # Save original phi value
+
         for q in range(1, self.max_q + 1):
-            for p in range(q + 1):
+            for p in range(q):
                 if gcd(p, q) == 1:
                     self.phi = p / q
                     self.construct_hamiltonian()
                     phis.extend([self.phi] * self.N)
                     energies.extend(self.evals.tolist())
 
+        self.phi = original_phi  # Restore original phi value
+
         plt.scatter(phis, energies, s=0.1, color='black')
-        plt.xlabel('Magnetic Flux per Plaquette $\\phi$')
+        plt.xlabel('Flux per Plaquette $\\phi$')
         plt.ylabel('Energy $E$')
         plt.title(f'Hofstadter Butterfly for $\\phi = p / {self.max_q}$ and $W = {self.disorder}$')
         plt.grid(True)
         plt.show()
-
     def prepare_outputs(self):
         """
         Package all relevant parameters and diagonalization 
@@ -132,7 +136,6 @@ class Honeycomb_Hamiltonian:
         self.evals, self.evecs = self.construct_hamiltonian()
         
         outputs = (self.L, self.t, self.disorder, self.phi, 
-                   self.max_q, self.evals, self.evecs, 'Honeycomb')
+                   self.max_q, self.evals, self.evecs)
         
         return outputs
-
