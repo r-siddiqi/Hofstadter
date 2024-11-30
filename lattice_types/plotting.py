@@ -1,9 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 
 class Plot_Lattice:
     
-    def __init__(self, outputs):
+    def __init__(self, outputs, save = False):
         
         
         self.L = outputs[0]  # Lattice dimension
@@ -15,6 +16,18 @@ class Plot_Lattice:
         self.evals = outputs[5]
         self.evecs = outputs[6]
         self.lattice_type = outputs[7]
+        self.save = save
+
+
+        if self.save == True:
+
+            if self.disorder == 0:
+                self.path = 'plots\\' + self.lattice_type + '\\No_Disorder'
+            else:
+                self.path = 'plots\\' + self.lattice_type + '\\Disorder'
+            
+            if not os.path.exists(self.path):
+                os.makedirs(self.path)
     
     
     """ Basic plotting functions """
