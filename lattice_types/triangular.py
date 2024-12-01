@@ -37,20 +37,13 @@ class Triangular_Hamiltonian:
         """Calculate Peierls phase factor for hopping between sites.
 
         Parameters:
-        ----------
-        i : int
-            x-index of starting site
-        j : int
-            y-index of starting site
-        delta_i : int
-            Change in x-coordinate between sites.
-        delta_j : int
-            Change in y-coordinate between sites.
+        i (int): x-index of starting site
+        j (int): y-index of starting site
+        delta_i (int): Change in x-coordinate between sites.
+        delta_j (int): Change in y-coordinate between sites.
 
         Returns:
-        -------
-        complex
-            Phase factor for the hopping term
+        complex: Phase factor for the hopping term
         """
 
         # Using the Landau gauge
