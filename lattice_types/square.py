@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from math import gcd
 
 class Square_Hamiltonian:
     """ Square lattice simulation with Anderson localization and a magnetic field"""
@@ -67,7 +68,13 @@ class Square_Hamiltonian:
 
 
     def construct_hamiltonian(self):
-        # Construct the Hamiltonian matrix with hopping, Peierls phases, and disorder.
+        """
+        Construct the Hamiltonian matrix with hopping,
+        Peierls phases, and disorder.
+
+        Returns:
+            list: Eigenvalues and eigenvectors of Hamiltonian matrix.
+        """
         self.disorder_setter()
         self.matrix = np.zeros((self.N, self.N), dtype=complex)
 
@@ -117,7 +124,13 @@ class Square_Hamiltonian:
             plt.show()
 
     def prepare_outputs(self):
-        
+        """
+        Package all relevant parameters and diagonalization 
+        outputs in a tuple to pass onto independent plotting functions.
+
+        Returns:
+            tuple: Parameter inputs for plotting functions.
+        """
         self.evals, self.evecs = self.construct_hamiltonian()
         
         outputs = (self.L, self.t, self.disorder, self.phi, 

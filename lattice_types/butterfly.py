@@ -4,7 +4,7 @@ from math import gcd
 import matplotlib.pyplot as plt
 
 
-class Butterfly:
+class butterfly:
 
 
     def __init__(self, outputs):
