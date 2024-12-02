@@ -56,6 +56,10 @@ _Hoftsadter butterfly for square lattice as q increases_
 <img src="https://github.com/user-attachments/assets/14c65aef-e5b3-47cf-a517-78489e49d2da" width="525" alt="butterfly_q_evolution">
 
 
+_Hofstadter butterfly for square lattice as t increases_  
+<img src="https://github.com/user-attachments/assets/f5e795b0-c945-4492-9c41-7f85e0763d1a" width ="525" alt="butterfly_t_evolution">
+
+
 # Basic Usage
 
 # Plot Examples
