@@ -46,7 +46,7 @@ class Honeycomb_Hamiltonian:
     
     def saving(self, title, save = False):
         
-        if save == True and title != None:
+        if self.save == True and save == True and title != None:
             plt.savefig(os.path.join(self.path, title+'.png'))
             plt.show()
         else:

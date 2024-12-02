@@ -46,7 +46,6 @@ class Square_Hamiltonian:
     
     
     def saving(self, title, save = False):
-        print(self.path)
         if self.save == True and save == True and title != None:
             plt.savefig(os.path.join(self.path, title+'.png'))
             plt.show()
