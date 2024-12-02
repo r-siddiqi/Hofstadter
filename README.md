@@ -6,7 +6,6 @@
 To use the notebooks, ensure you have a `conda` environment with:
 - `numpy`
 - `matplotlib`
-- `jupyter`
 
 # Introduction
 Condensed matter physics realizes the importance of 2D materials when it comes to the observation of interesting phenomena (ie. optical, magnetic, etc) and topological properties as well as technological applications. 
