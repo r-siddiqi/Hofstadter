@@ -101,17 +101,11 @@ Honeycomb butterfly with no disorder:
 
 An interesting result discussed in the [literature](https://link.springer.com/article/10.1140/epjb/e2016-70593-4) is that the presence of disorder kills the butterfly structure (but in the high-disorder limit, some butterfly-like structure may still persist).
 
-Square butterfly with marginal disorder:
 
-<img width="425" alt="square_disorder" src="https://github.com/user-attachments/assets/0d503248-6bcf-4c86-8e43-5692eab6991e">
+Square butterfly with increasing disorder:
 
+<img src="https://github.com/user-attachments/assets/5bb791fc-4374-472c-bc28-10767e56497c" width="500" alt="disorder_evolution">
 
-Square butterfly with increasingly high disorder:
-
-<img width="400" alt="square_med_disorder" src="https://github.com/user-attachments/assets/50adc33f-066a-4b92-884b-4e37471cfe7f">
-
-
-<img width="400" alt="square_strong_disorder" src="https://github.com/user-attachments/assets/55c6ad9d-f95e-4709-874b-92584c0206a3">
 
 Many other example plots can be found in the ["plots"](https://github.com/r-siddiqi/Hofstadter/tree/main/plots) folder.
 
