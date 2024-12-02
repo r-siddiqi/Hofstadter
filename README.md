@@ -114,6 +114,11 @@ Square butterfly with increasing disorder (butterfly-like pattern persists up to
 
 <img src="https://github.com/user-attachments/assets/5bb791fc-4374-472c-bc28-10767e56497c" width="525" alt="disorder_evolution">
 
+_Disorder effects on other common latice types:_  
+<img src="https://github.com/user-attachments/assets/74bbc898-361f-4459-8768-3aba7c7ff649" width="525" alt="triangular_disorder_evolution">  
+
+<img src="https://github.com/user-attachments/assets/0a6f8fcc-b9bc-47fb-8167-a84435d560f4" width="525" alt="kagome_butterfly_evolution">
+
 
 Many other example plots can be found in the ["plots"](https://github.com/r-siddiqi/Hofstadter/tree/main/plots) folder.
 
