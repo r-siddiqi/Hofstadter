@@ -149,8 +149,8 @@ Here are some papers we referenced or loosely recreated the results of. You may 
   Effects of next-nearest-neighbor hopping and magnetic field interactions
 
 ## Kagome Lattice
-- [Floquet Hofstadter butterfly on the kagome and triangular lattices](https://journals.aps.org/prb/pdf/10.1103/PhysRevB.98.245145)
-  Butterfly plots generated for the case where light is absent was used to verify our results for the kagome lattice
+- [Floquet Hofstadter butterfly on the kagome and triangular lattices](https://journals.aps.org/prb/pdf/10.1103/PhysRevB.98.245145)  
+  Figure 2 was used to verify our results for the kagome lattice
 - [Hofstadter Butterfly and Many-Body Effects in the Kagome Lattice](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.71.125310)  
   Detailed analysis of magnetic field effects and band structure
 - [Electronic Structure of the Kagome Lattice](https://iopscience.iop.org/article/10.1088/1367-2630/ac4126/pdf)  
