@@ -27,7 +27,7 @@ class Triangular_Hamiltonian:
         self.matrix = np.zeros((self.N, self.N), dtype=complex)
         self.on_site_potential = np.zeros(self.N)
         self.lattice_type = 'Triangular'
-        
+        self.save = save
         if self.save:
             # Base directory for saving plots
             base_dir = os.path.join('plots', self.lattice_type)

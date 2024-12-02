@@ -28,7 +28,7 @@ class Honeycomb_Hamiltonian:
 
         # Initialize on-site disorder potentials
         self.on_site_potential = np.zeros(self.N)
-        
+        self.save = save
         if self.save:
             # Base directory for saving plots
             base_dir = os.path.join('plots', self.lattice_type)
