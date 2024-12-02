@@ -102,7 +102,7 @@ Honeycomb butterfly with no disorder:
 An interesting result discussed in the [literature](https://link.springer.com/article/10.1140/epjb/e2016-70593-4) is that the presence of disorder kills the butterfly structure (but in the high-disorder limit, some butterfly-like structure may still persist).
 
 
-Square butterfly with increasing disorder:
+Square butterfly with increasing disorder (butterfly-like pattern persists up to ~ _W_ = 1.40):
 
 <img src="https://github.com/user-attachments/assets/5bb791fc-4374-472c-bc28-10767e56497c" width="525" alt="disorder_evolution">
 
