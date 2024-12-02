@@ -108,10 +108,10 @@ Square butterfly with marginal disorder:
 
 Square butterfly with increasingly high disorder:
 
-<img width="465" alt="square_med_disorder" src="https://github.com/user-attachments/assets/50adc33f-066a-4b92-884b-4e37471cfe7f">
+<img width="400" alt="square_med_disorder" src="https://github.com/user-attachments/assets/50adc33f-066a-4b92-884b-4e37471cfe7f">
 
 
-<img width="465" alt="square_strong_disorder" src="https://github.com/user-attachments/assets/55c6ad9d-f95e-4709-874b-92584c0206a3">
+<img width="400" alt="square_strong_disorder" src="https://github.com/user-attachments/assets/55c6ad9d-f95e-4709-874b-92584c0206a3">
 
 Many other example plots can be found in the ["plots"](https://github.com/r-siddiqi/Hofstadter/tree/main/plots) folder.
 
