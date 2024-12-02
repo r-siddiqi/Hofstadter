@@ -1,9 +1,5 @@
 # Contributing Guidelines
 
-Thank you for your interest in contributing to Simulating Anderson Localization and Hofstadter Butterflies on Common Euclidean Lattice Structures! This document outlines the process for contributing to this project.
-
-# Contributing Guidelines
-
 Thank you for your interest in contributing to our project on Simulating Anderson Localization and Hofstadter Butterflies on Common Euclidean Lattice Structures! This document outlines how to contribute effectively to this scientific computing project.
 
 ## Table of Contents
