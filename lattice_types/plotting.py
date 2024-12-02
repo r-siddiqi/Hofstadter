@@ -30,33 +30,38 @@ class Plotting_Functions:
                 os.makedirs(self.path)
     
     
+    def saving(self, title, save = False):
+        
+        if save == True and title != None:
+            plt.savefig(os.path.join(self.path, title))
+            plt.show()
+        else:
+            plt.show()
+
     """ Basic plotting functions """
 
-    def plot_evals(self):
+    def plot_evals(self, title = None, save = False):
+        
+        if title == None:
+            title = 'Eigenvalues of the ' + self.lattice_type + ' Lattice Hamiltonian'
+
         # Plot eigenvalues of hamiltonian matrix
         legend = f'L={self.L}, t={self.t}, W={self.disorder}, $\phi$={self.phi}'
         plt.plot(self.evals, '.')
         plt.ylabel(r'Eigenvalues $E_i$')
         plt.xlabel('Index $i$')
-        plt.title('Eigenvalues of the ' + self.lattice_type + ' Lattice Hamiltonian')
+        plt.title(title)
         plt.legend([legend])
         plt.grid(True)
-        plt.show()
 
-    def plot_evec(self):
-        # Plot some eigenvector in the middle of the spectrum
-        self.psi = self.evecs[:,self.L//2]
+        self.saving(title, save)
 
-        legend = f'L={self.L}, t={self.t}, W={self.disorder}, $\phi$={self.phi}'
-        plt.plot(np.abs(self.psi)**2)
-        plt.xlabel('x')
-        plt.ylabel(r'$ |\psi(x)|^2$')
-        plt.title('Arbitrary Eigenvector')
-        plt.legend([legend])
-        plt.grid(True)
-        plt.show()
 
-    def plot_evec_disorder(self):
+    def plot_evec(self, title = None, save = False):
+
+        if title == None:
+            title = 'Arbitrary Eigenvector'
+
         # Plot some eigenvector in the middle of the spectrum in the presence of disorder
         self.psi = self.evecs[:,self.L//2] # Some eigenvector in the middle of the spectrum
 
@@ -71,9 +76,14 @@ class Plotting_Functions:
         plt.title('Arbitrary Eigenvector')
         plt.legend([legend])
         plt.grid(True)
-        plt.show()
 
-    def plot_pr(self):
+        self.saving(title, save)
+
+    def plot_pr(self, title = None, save = False):
+
+        if title == None:
+            title = 'Localization Properties of the '+self.lattice_type+' Lattice'
+
         # Plot Participation Ratio
         self.PR = 1./np.sum(np.abs(self.evecs)**4, axis=0) # 'evecs' is a matrix of $\psi_i(x)$ amplitudes, 1st axis is x. This does the sum over x.
 
@@ -81,12 +91,13 @@ class Plotting_Functions:
         plt.plot(self.evals, self.PR, 'o')
         plt.xlabel('Energy $E$')
         plt.ylabel('Inverse Participation Ratio (IPR)')
-        plt.title('Localization Properties of the '+self.lattice_type+' Lattice')
+        plt.title(title)
         plt.legend([legend])
         plt.grid(True)
-        plt.show()
 
-    def plot_density_of_states(self, sigma=0.1, num_points=1000):
+        self.saving(title, save)
+
+    def plot_density_of_states(self, sigma=0.1, num_points=1000, title = None, save = False):
         """
         Plot the density of states.
 
@@ -94,6 +105,9 @@ class Plotting_Functions:
             sigma (float): Standard deviation for Gaussian broadening.
             num_points (int): Number of points in the energy grid.
         """
+        if title == None:
+            title = 'Density of States vs Energy for '+ self.lattice_type + ' Lattice'
+
         energy_min = np.min(self.evals) - 1
         energy_max = np.max(self.evals) + 1
         E_vals = np.linspace(energy_min, energy_max, num_points) # Artificial energy space seperate to eigenvalues
@@ -107,7 +121,8 @@ class Plotting_Functions:
         plt.plot(E_vals, dos)
         plt.xlabel('Energy $E$')
         plt.ylabel('Density of States $g(E)$')
-        plt.title('Density of States vs Energy for '+ self.lattice_type + ' Lattice')
+        plt.title(title)
         plt.legend([legend])
         plt.grid(True)
-        plt.show()
+        
+        self.saving(title, save)
