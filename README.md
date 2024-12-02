@@ -52,6 +52,10 @@ $$IPR = \frac{(\sum_x |\psi(x)|^2)^2}{ \sum_x |\psi(x)|^4}$$
 What happens when we apply a perpendicular, uniform magnetic field onto a lattice? The general tight-binding hamiltonian will now involve a "Peierls phase" accounting for the magnetic flux through each plaquette as well as relevant changes in the boundary conditions.
 An interesting result is that if we plot the energies as a function of magnetic flux ratios ($\phi = p/q$) such that $p$ and $q$ are coprime integers, we obtain a fractal pattern. It is a recursive structure. The way we constructed the butterfly involved choosing a maximum value for $q$, iterating through all the coprime $p$, $q$ pairs leading up to that point, and then reconstructing the hamiltonian for each consequent $\phi = p/q$. 
 
+_Hoftsadter butterfly for square lattice as q increases_  
+<img src="https://github.com/user-attachments/assets/14c65aef-e5b3-47cf-a517-78489e49d2da" width="525" alt="butterfly_q_evolution">
+
+
 # Basic Usage
 
 # Plot Examples
