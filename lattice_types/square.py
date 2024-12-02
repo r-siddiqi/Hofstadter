@@ -103,25 +103,25 @@ class Square_Hamiltonian:
         return self.evals, self.evecs
     
     def plot_hofstadter_butterfly(self):
-            # Plot the Hofstadter butterfly
-            plt.figure(figsize=(10, 8))
-            phis = []
-            energies = []
+        # Plot the Hofstadter butterfly
+        plt.figure(figsize=(10, 8))
+        phis = []
+        energies = []
 
-            for q in range(1, self.max_q + 1):
-                for p in range(q + 1):
-                    if gcd(p, q) == 1:
-                        self.phi = p / q
-                        self.construct_hamiltonian() # Reconstruct hamiltonian for each allowed phi
-                        phis.extend([self.phi] * self.N)
-                        energies.extend(self.evals.tolist())
+        for q in range(1, self.max_q + 1):
+            for p in range(q + 1):
+                if gcd(p, q) == 1:
+                    self.phi = p / q
+                    self.construct_hamiltonian() # Reconstruct hamiltonian for each allowed phi
+                    phis.extend([self.phi] * self.N)
+                    energies.extend(self.evals.tolist())
 
-            plt.scatter(phis, energies, s=0.1, color='black')
-            plt.xlabel('Flux per Plaquette $\phi$')
-            plt.ylabel('Energy $E$')
-            plt.title('Hofstadter Butterfly for $\phi = p / '+ str(self.max_q) + '$ and $W = '+ str(self.disorder) + '$')
-            plt.grid(True)
-            plt.show()
+        plt.scatter(phis, energies, s=0.1, color='black')
+        plt.xlabel('Flux per Plaquette $\phi$')
+        plt.ylabel('Energy $E$')
+        plt.title('Hofstadter Butterfly for $\phi = p / '+ str(self.max_q) + '$ and $W = '+ str(self.disorder) + '$')
+        plt.grid(True)
+        plt.show()
 
     def prepare_outputs(self):
         """
