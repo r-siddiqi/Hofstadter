@@ -3,7 +3,7 @@
 
 # Getting Started
 
-To use the notebooks, ensure you have a `conda` environment with:
+We use Python 3 with the following packages:
 - `numpy`
 - `matplotlib`
 - `jupyter`
@@ -23,7 +23,9 @@ Suppose we take an atom. There are orbitals associated with it that describe reg
 How do we describe the energy of a system where particles are placed in a crystalline configuration?
 The following tight-binding Hamiltonian describes lattices in the absence of external interactions while accounting for hopping:
 
-$$H = \omega_0 \sum_i a_i^{\dagger} a_i - t \sum_{\langle i,j\rangle} (a_i^{\dagger} a_j + a_j^{\dagger} a_i)$$
+```math
+$$H = \omega_0\underbrace{\sum_i a_i^{\dagger} a_i - t}_\textrm{all latice sites} \underbrace{\sum_{\langle i,j\rangle} (a_i^{\dagger} a_j + a_j^{\dagger} a_i)}_\textrm{hopping between nearest neighbors}$$
+```
 
 where $\omega_0$ is the on-site energy. The first sum runs over all lattice sites. The second sum describes hopping between nearest neighbors with a hopping amplitude $t$. It also encodes lattice geometry. 
 
@@ -51,6 +53,14 @@ $$IPR = \frac{(\sum_x |\psi(x)|^2)^2}{ \sum_x |\psi(x)|^4}$$
 ## Hofstadter Butterflies
 What happens when we apply a perpendicular, uniform magnetic field onto a lattice? The general tight-binding hamiltonian will now involve a "Peierls phase" accounting for the magnetic flux through each plaquette as well as relevant changes in the boundary conditions.
 An interesting result is that if we plot the energies as a function of magnetic flux ratios ($\phi = p/q$) such that $p$ and $q$ are coprime integers, we obtain a fractal pattern. It is a recursive structure. The way we constructed the butterfly involved choosing a maximum value for $q$, iterating through all the coprime $p$, $q$ pairs leading up to that point, and then reconstructing the hamiltonian for each consequent $\phi = p/q$. 
+
+_Hoftsadter butterfly for square lattice as q increases (i.e. magnetic flux decreases)_  
+<img src="https://github.com/user-attachments/assets/14c65aef-e5b3-47cf-a517-78489e49d2da" width="525" alt="butterfly_q_evolution">
+
+
+_Hofstadter butterfly for square lattice as hopping parameter, t, increases_  
+<img src="https://github.com/user-attachments/assets/f5e795b0-c945-4492-9c41-7f85e0763d1a" width ="525" alt="butterfly_t_evolution">
+
 
 # Basic Usage
 
@@ -101,17 +111,16 @@ Honeycomb butterfly with no disorder:
 
 An interesting result discussed in the [literature](https://link.springer.com/article/10.1140/epjb/e2016-70593-4) is that the presence of disorder kills the butterfly structure (but in the high-disorder limit, some butterfly-like structure may still persist).
 
-Square butterfly with marginal disorder:
 
-<img width="425" alt="square_disorder" src="https://github.com/user-attachments/assets/0d503248-6bcf-4c86-8e43-5692eab6991e">
+Square butterfly with increasing disorder (butterfly-like pattern persists up to ~ _W_ = 1.40):
 
+<img src="https://github.com/user-attachments/assets/5bb791fc-4374-472c-bc28-10767e56497c" width="525" alt="disorder_evolution">
 
-Square butterfly with increasingly high disorder:
+_Disorder effects on other common lattice types:_  
+<img src="https://github.com/user-attachments/assets/74bbc898-361f-4459-8768-3aba7c7ff649" width="525" alt="triangular_disorder_evolution">  
 
-<img width="465" alt="square_med_disorder" src="https://github.com/user-attachments/assets/50adc33f-066a-4b92-884b-4e37471cfe7f">
+<img src="https://github.com/user-attachments/assets/0a6f8fcc-b9bc-47fb-8167-a84435d560f4" width="525" alt="kagome_butterfly_evolution">
 
-
-<img width="465" alt="square_strong_disorder" src="https://github.com/user-attachments/assets/55c6ad9d-f95e-4709-874b-92584c0206a3">
 
 Many other example plots can be found in the ["plots"](https://github.com/r-siddiqi/Hofstadter/tree/main/plots) folder.
 
@@ -149,8 +158,8 @@ Here are some papers we referenced or loosely recreated the results of. You may 
   Effects of next-nearest-neighbor hopping and magnetic field interactions
 
 ## Kagome Lattice
-- [Floquet Hofstadter butterfly on the kagome and triangular lattices](https://journals.aps.org/prb/pdf/10.1103/PhysRevB.98.245145)
-  Butterfly plots generated for the case where light is absent was used to verify our results for the kagome lattice
+- [Floquet Hofstadter butterfly on the kagome and triangular lattices](https://journals.aps.org/prb/pdf/10.1103/PhysRevB.98.245145)  
+  Figure 2 was used to verify our results for the kagome lattice
 - [Hofstadter Butterfly and Many-Body Effects in the Kagome Lattice](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.71.125310)  
   Detailed analysis of magnetic field effects and band structure
 - [Electronic Structure of the Kagome Lattice](https://iopscience.iop.org/article/10.1088/1367-2630/ac4126/pdf)  
