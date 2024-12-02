@@ -23,7 +23,9 @@ Suppose we take an atom. There are orbitals associated with it that describe reg
 How do we describe the energy of a system where particles are placed in a crystalline configuration?
 The following tight-binding Hamiltonian describes lattices in the absence of external interactions while accounting for hopping:
 
-$$H = \omega_0 \sum_i a_i^{\dagger} a_i - t \sum_{\langle i,j\rangle} (a_i^{\dagger} a_j + a_j^{\dagger} a_i)$$
+```math
+$$H = \omega_0\underbrace{\sum_i a_i^{\dagger} a_i - t}_\textrm{all latice sites} \underbrace{\sum_{\langle i,j\rangle} (a_i^{\dagger} a_j + a_j^{\dagger} a_i)}_\textrm{hopping between nearest neighbors}$$
+```
 
 where $\omega_0$ is the on-site energy. The first sum runs over all lattice sites. The second sum describes hopping between nearest neighbors with a hopping amplitude $t$. It also encodes lattice geometry. 
 
