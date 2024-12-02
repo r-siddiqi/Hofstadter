@@ -85,6 +85,7 @@ For Square Lattice
 
 
 **Hofstadter Butterfly:**
+
 Square butterfly with no disorder:
 
 <img width="465" alt="square_no_disorder" src="https://github.com/user-attachments/assets/9b55e5c7-d2b2-49eb-8d85-370bb2e4e94d">
