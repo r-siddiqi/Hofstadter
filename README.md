@@ -104,7 +104,7 @@ An interesting result discussed in the [literature](https://link.springer.com/ar
 
 Square butterfly with increasing disorder:
 
-<img src="https://github.com/user-attachments/assets/5bb791fc-4374-472c-bc28-10767e56497c" width="500" alt="disorder_evolution">
+<img src="https://github.com/user-attachments/assets/5bb791fc-4374-472c-bc28-10767e56497c" width="525" alt="disorder_evolution">
 
 
 Many other example plots can be found in the ["plots"](https://github.com/r-siddiqi/Hofstadter/tree/main/plots) folder.
