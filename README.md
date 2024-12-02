@@ -56,24 +56,60 @@ An interesting result is that if we plot the energies as a function of magnetic 
 
 # Plot Examples
 
-Eigenvalue spectrum:
+**Eigenvalue spectrum:**
 
-Eigenvector:
+For Square Lattice
 
-Inverse participation ratio:
+<img width="465" alt="Eig Value Spectrum" src="https://github.com/user-attachments/assets/0269271a-cde6-4fc8-81e3-6ac03dad5242">
 
-Density of states:
 
+**Eigenvector:**
+
+For Square Lattice
+
+<img width="465" alt="Arbitrary Eig" src="https://github.com/user-attachments/assets/78a9d79f-ea1c-4f89-a17d-871424ecd523">
+
+
+**Inverse participation ratio:**
+
+For Square Lattice
+
+<img width="465" alt="IPR" src="https://github.com/user-attachments/assets/cfd7c401-e087-441f-a0f7-d825b4b29368">
+
+
+**Density of states:**
+
+For Square Lattice
+
+<img width="465" alt="density_of_states" src="https://github.com/user-attachments/assets/6587e584-cb43-4ee6-b36e-20bd98e49c1a">
+
+
+**Hofstadter Butterfly:**
 Square butterfly with no disorder:
+
+<img width="465" alt="square_no_disorder" src="https://github.com/user-attachments/assets/9b55e5c7-d2b2-49eb-8d85-370bb2e4e94d">
+
+
 Honeycomb butterfly with no disorder:
 
-An interesting result discussed in [PAPER] is that the presence of disorder kills the butterfly structure.
+<img width="465" alt="honeycomb_no_disorder" src="https://github.com/user-attachments/assets/d7ef1d1c-087b-4b6c-ac2f-0d8ce98c7784">
+
+
+An interesting result discussed in the [literature](https://link.springer.com/article/10.1140/epjb/e2016-70593-4) is that the presence of disorder kills the butterfly structure (but in the high-disorder limit, some butterfly-like structure may still persist).
 
 Square butterfly with marginal disorder:
 
-Square butterfly with strong disorder:
+<img width="425" alt="square_disorder" src="https://github.com/user-attachments/assets/0d503248-6bcf-4c86-8e43-5692eab6991e">
 
-Many other example plots can be found in the "plots" folder.
+
+Square butterfly with increasingly high disorder:
+
+<img width="465" alt="square_med_disorder" src="https://github.com/user-attachments/assets/50adc33f-066a-4b92-884b-4e37471cfe7f">
+
+
+<img width="465" alt="square_strong_disorder" src="https://github.com/user-attachments/assets/55c6ad9d-f95e-4709-874b-92584c0206a3">
+
+Many other example plots can be found in the ["plots"](https://github.com/r-siddiqi/Hofstadter/tree/main/plots) folder.
 
 # Potential Applications
 The code in this repository simulates some basic tight-binding hamiltonians specific to common 2D lattice types found in materials with the option to introduce on-site disorder or a uniform magnetic field. Modifications would need to be made in order to simulate specific 2D materials or account for more complicated/specific defects, a non-uniform magnetic field, or other complex systems. 
@@ -109,6 +145,8 @@ Here are some papers we referenced or loosely recreated the results of. You may 
   Effects of next-nearest-neighbor hopping and magnetic field interactions
 
 ## Kagome Lattice
+- [Floquet Hofstadter butterfly on the kagome and triangular lattices](https://journals.aps.org/prb/pdf/10.1103/PhysRevB.98.245145)
+  Butterfly plots generated for the case where light is absent was used to verify our results for the kagome lattice
 - [Hofstadter Butterfly and Many-Body Effects in the Kagome Lattice](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.71.125310)  
   Detailed analysis of magnetic field effects and band structure
 - [Electronic Structure of the Kagome Lattice](https://iopscience.iop.org/article/10.1088/1367-2630/ac4126/pdf)  
