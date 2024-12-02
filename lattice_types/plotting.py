@@ -22,9 +22,9 @@ class Plotting_Functions:
         if self.save == True:
 
             if self.disorder == 0:
-                self.path = 'plots\\' + self.lattice_type + '\\No_Disorder'
+                self.path = 'plots\\' + self.lattice_type + '\\No_Disorder' + '\\L' + str(self.L) + '_t' + str(self.t) + '_phi' + str(self.phi) + '_q' + str(self.max_q)
             else:
-                self.path = 'plots\\' + self.lattice_type + '\\Disorder'
+                self.path = 'plots\\' + self.lattice_type + '\\Disorder' + '\\L' + str(self.L) + '_t' + str(self.t) + '_phi' + str(self.phi) + '_q' + str(self.max_q) + '_dis' + str(self.disorder)
             
             if not os.path.exists(self.path):
                 os.makedirs(self.path)
