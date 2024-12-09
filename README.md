@@ -63,6 +63,71 @@ _Hofstadter butterfly for square lattice as hopping parameter, t, increases_
 
 
 # Basic Usage
+## Basic Usage
+
+The repository contains multiple lattice implementations in `lattice_types/`: square, honeycomb, triangular, and kagome lattices. Each implements the tight-binding model with support for Anderson localization (disorder) and magnetic field effects.
+
+### Square Lattice Example
+
+Here's a minimal example using the square lattice, without disorder, to generate a Hofstadter butterfly:
+
+```python
+from lattice_types.square import Square_Hamiltonian
+
+# Initialize square lattice
+lattice = Square_Hamiltonian(
+    length=10,     # 10x10 lattice
+    t=1.0,        # Hopping parameter
+    W=0.0,        # No disorder
+    phi=0.0,      # Initial magnetic flux
+    q=50          # Maximum denominator for flux values
+)
+
+# Plot Hofstadter butterfly
+lattice.plot_hofstadter_butterfly()
+```
+
+This is the resulting output:
+
+<img width="465" alt="square_no_disorder" src="https://github.com/user-attachments/assets/9b55e5c7-d2b2-49eb-8d85-370bb2e4e94d">
+
+
+### Parameters
+
+- `length`: Lattice size (L x L)
+- `t`: Hopping parameter between adjacent sites
+- `W`: Disorder strength 
+- `phi`: Magnetic flux per plaquette (in units of flux quantum)
+- `q`: Maximum denominator for flux values in Hofstadter butterfly
+
+### Key Methods
+
+Each lattice class provides:
+```python
+# Construct Hamiltonian and get eigenvalues/vectors
+eigenvalues, eigenvectors = lattice.construct_hamiltonian()
+
+# Get system parameters and outputs
+outputs = lattice.prepare_outputs()  # Returns (L, t, W, phi, q, evals, evecs, lattice_type)
+```
+
+### Save Directory Structure
+
+When `save=True` is passed to the constructor, plots are automatically saved in:
+```
+plots/
+└── [LatticeType]/
+    ├── No_Disorder/
+    │   └── L{length}_t{t}_phi{phi}_q{q}/
+    └── Disorder/
+        └── L{length}_t{t}_phi{phi}_q{q}_dis{W}/
+```
+
+Example plots in the repository demonstrate:
+- Eigenvalue Spectrum
+- Density of States vs. Energy
+- Hofstadter butterflies for different lattice geometries
+- Effects of disorder on the butterfly pattern 
 
 # Plot Examples
 
