@@ -63,7 +63,6 @@ _Hofstadter butterfly for square lattice as hopping parameter, t, increases_
 
 
 # Basic Usage
-## Basic Usage
 
 The repository contains multiple lattice implementations in `lattice_types/`: square, honeycomb, triangular, and kagome lattices. Each implements the tight-binding model with support for Anderson localization (disorder) and magnetic field effects.
 
