@@ -142,7 +142,8 @@ class DisorderEvolution:
 # Example usage:
 if __name__ == "__main__":
   # Import any lattice type
-  from square.py import Square_Hamiltonian
+  # For example, the square
+  from square import Square_Hamiltonian
 
   # Create animation for square lattice
   evolution = DisorderEvolution(
@@ -152,6 +153,11 @@ if __name__ == "__main__":
       max_W=2.0,
       q=50
   )
+
+# Examples for other lattice types:
+# from triangular import Triangular_Hamiltonian
+# from kagome import Kagome_Hamiltonian
+# from honeycomb import Honeycomb_Hamiltonian
 
   # Generate and save animation
   evolution.animate(save_path='square_butterfly_evolution.gif')
