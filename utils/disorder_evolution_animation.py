@@ -39,7 +39,7 @@ class DisorderEvolution:
     # Set plot style
     plt.style.use(style)
 
-    # Initialize with clean system
+    # Initialize system without disorder
     self.model = self.lattice_class(
         length=self.length,
         t=self.t,
