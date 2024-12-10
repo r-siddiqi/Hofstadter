@@ -66,6 +66,8 @@ _Hofstadter butterfly for square lattice as hopping parameter, t, increases_
 
 The repository contains multiple lattice implementations in `lattice_types` via the classes `Square_Hamiltonian`, `Honeycomb_Hamiltonian`, `Triangular_Hamiltonian`, and `Kagome_Hamiltonian` in `square.py`, `honeycomb.py`, `triangular.py`, and `kagome.py` respectively. Each class implements the tight-binding model with support for Anderson localization (disorder) and magnetic field effects. The `plot_hofstadter_butterfly` function exists uniquely for each lattice class since it is dependent on the hamiltonian construction specific to each structure. The `plotting.py` file contains a `Plotting_Functions` class that takes the relevant parameters from the individual lattice classes so that common plots such as the eigenvalue spectrum, random eigenvector, density of states, and inverse participation ratio can be attained by calling their respective functions. The existence of the `Plotting_Functions` class reduces redundancy and improves the clarity of the code by keeping plotting functions independent of the geometric hamiltonian construction separate from the lattice type classes.
 
+Functions relating to butterfly animations with respect to different parameters are located in the `utils` folder. 
+
 ### Square Lattice Example
 
 Here's a minimal example using the square lattice, without disorder, to generate a Hofstadter butterfly:
