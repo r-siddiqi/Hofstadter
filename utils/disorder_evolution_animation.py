@@ -154,10 +154,10 @@ if __name__ == "__main__":
       q=50
   )
 
+  # Generate and save animation
+  evolution.animate(save_path='square_butterfly_evolution.gif')
+
 # Examples for other lattice types:
 # from triangular import Triangular_Hamiltonian
 # from kagome import Kagome_Hamiltonian
 # from honeycomb import Honeycomb_Hamiltonian
-
-  # Generate and save animation
-  evolution.animate(save_path='square_butterfly_evolution.gif')
