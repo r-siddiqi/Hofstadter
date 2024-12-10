@@ -142,7 +142,7 @@ class DisorderEvolution:
 # Example usage:
 if __name__ == "__main__":
   # Import any lattice type
-  from lattice_types.square import Square_Hamiltonian
+  from square.py import Square_Hamiltonian
 
   # Create animation for square lattice
   evolution = DisorderEvolution(
