@@ -64,7 +64,7 @@ _Hofstadter butterfly for square lattice as hopping parameter, t, increases_
 
 # Basic Usage
 
-The repository contains multiple lattice implementations in `lattice_types/`: square, honeycomb, triangular, and kagome lattices. Each implements the tight-binding model with support for Anderson localization (disorder) and magnetic field effects.
+The repository contains multiple lattice implementations in `lattice_types` via the classes `Square_Hamiltonian`, `Honeycomb_Hamiltonian`, `Triangular_Hamiltonian`, and `Kagome_Hamiltonian` in `square.py`, `honeycomb.py`, `triangular.py`, and `kagome.py` respectively. Each class implements the tight-binding model with support for Anderson localization (disorder) and magnetic field effects. The `plot_hofstadter_butterfly` function exists uniquely for each lattice class since it is dependent on the hamiltonian construction specific to each structure. The `plotting.py` file contains a `Plotting_Functions` class that takes the relevant parameters from the individual lattice classes so that common plots such as the eigenvalue spectrum, random eigenvector, density of states, and inverse participation ratio can be attained by calling their respective functions. The existence of the `Plotting_Functions` class reduces redundancy and improves the clarity of the code by keeping plotting functions independent of the geometric hamiltonian construction separate from the lattice type classes.
 
 ### Square Lattice Example
 
@@ -93,11 +93,13 @@ This is the resulting output:
 
 ### Parameters
 
-- `length`: Lattice size (L x L)
-- `t`: Hopping parameter between adjacent sites
-- `W`: Disorder strength 
-- `phi`: Magnetic flux per plaquette (in units of flux quantum)
-- `q`: Maximum denominator for flux values in Hofstadter butterfly
+Adjustable parameters required for each lattice type class are:
+
+- `length (int)`: Lattice size (L x L)
+- `t (float)`: Hopping parameter between adjacent sites
+- `W (float)`: Disorder strength 
+- `phi (float)`: Magnetic flux per plaquette (in units of flux quantum)
+- `q (int)`: Maximum denominator for flux values in Hofstadter butterfly
 
 ### Key Methods
 
@@ -126,7 +128,7 @@ Example plots in the repository demonstrate:
 - Eigenvalue Spectrum
 - Density of States vs. Energy
 - Hofstadter butterflies for different lattice geometries
-- Effects of disorder on the butterfly pattern 
+- Effects of disorder on the butterfly pattern
 
 # Plot Examples
 
