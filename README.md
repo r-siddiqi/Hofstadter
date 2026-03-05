@@ -1,6 +1,6 @@
 # Simulating Anderson Localization and Hofstadter Butterflies on Common Euclidean Lattice Structures
  ### Created by Amal Bumbia, Rida Siddiqi, and Max Wroblewski.
-
+### Notice: The version of this repository where Amal corrected certain errors and added more is: https://github.com/amalbumbia/EuclideanLattices/tree/main    --- the current repo was strictly for a course project.
 # Getting Started
 
 We use Python 3 with the following packages:
